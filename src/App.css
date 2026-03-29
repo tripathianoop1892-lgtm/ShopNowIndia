@@ -1,0 +1,116 @@
+body {
+  font-family: Arial;
+  background: #f5f7fb;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.blue { background: #2563eb; }
+.red { background: #dc2626; }
+.orange { background: #f59e0b; }
+
+/* SEARCH */
+.search {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  padding: 10px;
+}
+
+.expiry-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.form button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+/* STATUS COLORS */
+.Expired {
+  color: red;
+  font-weight: bold;
+}
+
+.Expiring-Soon {
+  color: orange;
+  font-weight: bold;
+}
+
+.Low-Stock {
+  color: goldenrod;
+  font-weight: bold;
+}
+
+.OK {
+  color: green;
+  font-weight: bold;
+}
+
+/* BUTTONS */
+.edit {
+  background: blue;
+  color: white;
+  margin-right: 5px;
+}
+
+.delete {
+  background: red;
+  color: white;
+}
+
+/* NO DATA */
+.no-data {
+  color: red;
+}
