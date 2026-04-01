@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import "./Medicinelist.css";
-
-function Medicinelist({ medicines, deleteMedicine, updateMedicine }) {
+function Medicinelist({ medicines = [], deleteMedicine, updateMedicine }) {
   const [editIndex, setEditIndex] = useState(null);
   const [editData, setEditData] = useState({});
 
   const startEdit = (index) => {
     setEditIndex(index);
-    setEditData(medicines[index]);
+    setEditData(medicines[index] || {});
   };
 
   const saveEdit = () => {
-    updateMedicine(editIndex, editData);
-    setEditIndex(null);
+    if (editIndex !== null) {
+      updateMedicine(editIndex, editData);
+      setEditIndex(null);
+      setEditData({});
+    }
   };
 
   return (
@@ -27,7 +29,7 @@ function Medicinelist({ medicines, deleteMedicine, updateMedicine }) {
       </thead>
 
       <tbody>
-        {medicines.length === 0 ? (
+        {!medicines || medicines.length === 0 ? (
           <tr>
             <td colSpan="4">No data ❌</td>
           </tr>
@@ -38,7 +40,7 @@ function Medicinelist({ medicines, deleteMedicine, updateMedicine }) {
                 <>
                   <td>
                     <input
-                      value={editData.name}
+                      value={editData.name || ""}
                       onChange={(e) =>
                         setEditData({ ...editData, name: e.target.value })
                       }
@@ -46,7 +48,7 @@ function Medicinelist({ medicines, deleteMedicine, updateMedicine }) {
                   </td>
                   <td>
                     <input
-                      value={editData.qty}
+                      value={editData.qty || ""}
                       onChange={(e) =>
                         setEditData({ ...editData, qty: e.target.value })
                       }
@@ -55,7 +57,7 @@ function Medicinelist({ medicines, deleteMedicine, updateMedicine }) {
                   <td>
                     <input
                       type="date"
-                      value={editData.expiry}
+                      value={editData.expiry || ""}
                       onChange={(e) =>
                         setEditData({ ...editData, expiry: e.target.value })
                       }
@@ -67,9 +69,9 @@ function Medicinelist({ medicines, deleteMedicine, updateMedicine }) {
                 </>
               ) : (
                 <>
-                  <td>{med.name}</td>
-                  <td>{med.qty}</td>
-                  <td>{med.expiry}</td>
+                  <td>{med?.name}</td>
+                  <td>{med?.qty}</td>
+                  <td>{med?.expiry}</td>
                   <td>
                     <button onClick={() => startEdit(i)}>Edit</button>
                     <button onClick={() => deleteMedicine(i)}>
