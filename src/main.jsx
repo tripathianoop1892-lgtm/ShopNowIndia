@@ -1,42 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import { RouterProvider,createBrowserRouter } from "react-router-dom"
-import Card from "./Card/Card.jsx"
-import Dashboard from "./Dashboard/Dashbord.jsx"
-import ForgotPassword from "./ForgotPassword/Forgot Passwoard.jsx"
-import Layout from "./Layout/MainLayout.jsx"
-import Header from "./Header/Header.jsx"
-import Sidebar from "./Sidebar/Sidebar.jsx"
-import Medicinelist from './MdicineList/Medicinelist.jsx'
-import AddMedicine from "./Addmedicine/Addmedicine.jsx"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 
+import router from "./routes/AppRoutes";
 
-const router = createBrowserRouter([
-  {
-    path:"/",
-    element:<Layout/>,
-    children:[
-      {
-        path:"",
-        element:<Dashboard/>
-      },
-      {
-        path:"medicine",
-        element:<App/>
-      }
-    ]
-  }
-])
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    
-      {/* <App /> */}
-      
-      
-      
-      <RouterProvider router={router}/>
-      
-    
-  </StrictMode>
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
