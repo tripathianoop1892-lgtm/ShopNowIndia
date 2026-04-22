@@ -82,14 +82,12 @@ const router = createBrowserRouter([
   },
 // Medicine list
  {
-  path: "/",
-  element: <DistributorLayout />,
-  children: [
-    {
-      path: "medicine-list",
-      element: <Distributor />,
-    }
-  ]
+  path: "/medicines-list",
+  element: <DistributorLayout >
+   <MedicineList />
+  </DistributorLayout >,
+ 
+ 
 },
 
   // Add Medicine

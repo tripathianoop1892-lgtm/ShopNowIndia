@@ -12,11 +12,11 @@ const Sidebar = () => {
 
         <li><Link to="/add-medicine">Add Medicine</Link></li>
 
-        <li><Link to="/medicines">My Medicines</Link></li>
+        <li><Link to="/medicines-list">My Medicines</Link></li>
 
         <li><Link to="/orders">Orders</Link></li>
 
-        <li><Link to="/stock-update">Stock Update</Link></li>
+        <li><Link to="/stock">Stock Update</Link></li>
         
         <li><Link to="/low-stock">Low Stock</Link></li>
 
